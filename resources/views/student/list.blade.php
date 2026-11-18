@@ -1,28 +1,13 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Students</title>
-</head>
-<body>
+@extends('layouts.app')
 
-    <nav>
-        <a href="/students">Students</a> |
-        <a href="/courses">Courses</a>
-    </nav>
+@section('title', 'Student List')
 
-    <hr>
+@section('content')
 
-    <h1>Student List</h1>
+    <h2>Student List</h2>
 
-    @if(session('success'))
-        <div style="color: green;">
-            {{ session('success') }}
-        </div>
-        <br>
-    @endif
-
-    <a href="/student/create">+ Create New Student</a>
+    <a href="{{ route('students.create') }}">+ Create New Student</a>
 
     <br><br>
 
@@ -41,39 +26,16 @@
             @forelse($students as $student)
                 <tr>
                     <td>{{ $student->id }}</td>
-
                     <td>{{ $student->name }}</td>
-
                     <td>{{ $student->email }}</td>
-
                     <td>{{ $student->phone }}</td>
 
                     <td>
-                        <a href="/students/{{ $student->id }}">
-                            View
-                        </a>
-
+                        <a href="{{ route('students.show', $student) }}">View</a>
                         |
-
-                        <a href="/students/{{ $student->id }}/edit">
-                            Edit
-                        </a>
-
+                        <a href="{{ route('students.edit', $student) }}">Edit</a>
                         |
-
-                        <form
-                            method="POST"
-                            action="/students/{{ $student->id }}"
-                            style="display: inline;"
-                            onsubmit="return confirm('Are you sure you want to delete this student?');"
-                        >
-                            @csrf
-                            @method('DELETE')
-
-                            <button type="submit">
-                                Delete
-                            </button>
-                        </form>
+                        <x-delete-form :action="route('students.destroy', $student)" />
                     </td>
                 </tr>
             @empty
@@ -84,6 +46,4 @@
         </tbody>
     </table>
 
-</body>
-</html>
-
+@endsection
