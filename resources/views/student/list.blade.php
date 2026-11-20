@@ -7,7 +7,9 @@
 
     <h2>Student List</h2>
 
-    <a href="{{ route('students.create') }}">+ Create New Student</a>
+    <a href="{{ route('students.create') }}" class="btn">
+    + Create New Student
+</a>
 
     <br><br>
 

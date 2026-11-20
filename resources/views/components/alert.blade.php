@@ -1,10 +1,12 @@
 
-@if($type === 'success')
-    <div style="color: green; padding: 10px; border: 1px solid green;">
-        {{ $message }}
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
     </div>
-@elseif($type === 'error')
-    <div style="color: red; padding: 10px; border: 1px solid red;">
-        {{ $message }}
+@endif
+
+@if(session('error'))
+    <div class="alert alert-error">
+        {{ session('error') }}
     </div>
 @endif

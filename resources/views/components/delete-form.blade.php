@@ -8,5 +8,5 @@
     @csrf
     @method('DELETE')
 
-    <button type="submit">Delete</button>
+   <button type="submit" class="btn">Delete</button>
 </form>

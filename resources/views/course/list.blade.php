@@ -1,17 +1,18 @@
 
 @extends('layouts.app')
 
-@section('title', 'Course List')
+@section('title', 'Courses')
 
 @section('content')
 
-    <h2>Course List</h2>
+    <h1>Courses</h1>
 
-    <a href="{{ route('courses.create') }}">+ Create New Course</a>
+    <a href="{{ route('courses.create') }}" class="btn">
+    + Create New Course
+</a>
+    </a>
 
-    <br><br>
-
-    <table border="1" cellpadding="8" cellspacing="0">
+    <table>
         <thead>
             <tr>
                 <th>ID</th>
@@ -35,12 +36,10 @@
                     <td>{{ $course->is_active ? 'Yes' : 'No' }}</td>
 
                     <td>
-                        <a href="{{ route('courses.show', $course) }}">View</a>
-                        |
-                        <a href="{{ route('courses.edit', $course) }}">Edit</a>
-                        |
+                        <a href="{{ route('courses.show', $course) }}">View</a> |
+                        <a href="{{ route('courses.edit', $course) }}">Edit</a> |
 
-                       <x-delete-form :action="route('courses.destroy', $course)" />
+                        <x-delete-form :action="route('courses.destroy', $course)" />
                     </td>
                 </tr>
             @empty

@@ -1,37 +1,30 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>@yield('title', 'Student Management System')</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@yield('title', 'Training Institute') | Training Institute</title>
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body>
 
-    <header>
-        <h1>Student Management System</h1>
-    </header>
+<body>
 
     @include('partials.navbar')
 
-    <hr>
+    <main class="container">
 
-    <main>
-        @if(session('success'))
-    <x-alert type="success" :message="session('success')" />
-    <br>
-@endif
-
-@if($errors->any())
-    <x-alert type="error" :message="$errors->first()" />
-    <br>
-@endif
+        <x-alert />
 
         @yield('content')
+
     </main>
 
-    <hr>
-
-   @include('partials.footer')
+    @include('partials.footer')
 
 </body>
+
 </html>
