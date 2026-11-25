@@ -17,10 +17,16 @@
 
     <br>
 
-    <a href="{{ route('courses.edit', $course) }}">Edit Course</a>
+    <div style="display: flex; gap: 10px;">
 
-    |
+        <a href="{{ route('courses.edit', $course) }}" class="btn">
+            Edit Course
+        </a>
 
-    <a href="{{ route('courses.index') }}">Back to Courses</a>
+        <a href="{{ route('courses.index') }}" class="btn">
+            Back to Courses
+        </a>
+
+    </div>
 
 @endsection
