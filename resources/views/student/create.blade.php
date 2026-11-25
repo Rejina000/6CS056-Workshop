@@ -14,11 +14,11 @@
 
         <br>
 
-        <button type="submit">Create Student</button>
+        <button type="submit" class="btn">Create Student</button>
     </form>
 
     <br>
 
-    <a href="{{ route('students.index') }}">Back to Students</a>
+    <a href="{{ route('students.index') }}" class="btn">Back to Students</a>
 
 @endsection
