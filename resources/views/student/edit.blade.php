@@ -15,11 +15,13 @@
 
         <br>
 
-        <button type="submit">Update Student</button>
+        <button type="submit" class="btn">Update Student</button>
     </form>
 
     <br>
 
-    <a href="{{ route('students.index') }}">Back to Students</a>
+    <a href="{{ route('students.index') }}" class="btn">
+        Back to Students
+    </a>
 
 @endsection
